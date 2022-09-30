@@ -1,0 +1,9 @@
+{
+"id": "hackergirl",
+"firstname": "Emily",
+"lastname":"Asgardius",
+"email":"hackergirl@asgardius.company",
+"password": "test",
+"country":"asteroid",
+"birthdate": "1994-02-19"
+}

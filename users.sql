@@ -1,0 +1,1 @@
+CREATE TABLE `users` (  `id` varchar(15) NOT NULL,  `firstname` varchar(30) NOT NULL,  `lastname` varchar(30) NOT NULL,  `email` varchar(30) NOT NULL,  `password` varchar(30) NOT NULL,  `country` varchar(30) NOT NULL,  `birthdate` date NOT NULL,  UNIQUE KEY `id` (`id`));
