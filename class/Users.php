@@ -83,18 +83,21 @@ class Users{
 	 
 		$stmt = $this->conn->prepare("
 			UPDATE ".$this->itemsTable." 
-			SET name= ?, description = ?, price = ?, category_id = ?, created = ?
+			SET firstname= ?, lastname = ?, email = ?, password = ?, country = ?, birthdate = ?, permission = ?
 			WHERE id = ?");
 	 
 		$this->id = htmlspecialchars(strip_tags($this->id));
-		$this->name = htmlspecialchars(strip_tags($this->name));
-		$this->description = htmlspecialchars(strip_tags($this->description));
-		$this->price = htmlspecialchars(strip_tags($this->price));
-		$this->category_id = htmlspecialchars(strip_tags($this->category_id));
-		$this->created = htmlspecialchars(strip_tags($this->created));
-	 
-		$stmt->bind_param("ssiisi", $this->name, $this->description, $this->price, $this->category_id, $this->created, $this->id);
-		
+		$this->firstname = htmlspecialchars(strip_tags($this->firstname));
+		$this->lastname = htmlspecialchars(strip_tags($this->lastname));
+		$this->email = htmlspecialchars(strip_tags($this->email));
+		$this->password = htmlspecialchars(strip_tags($this->password));
+		$this->country = htmlspecialchars(strip_tags($this->country));
+		$this->birthdate = htmlspecialchars(strip_tags($this->birthdate));
+		$this->permission = htmlspecialchars(strip_tags($this->permission));
+			
+			
+		$stmt->bind_param("ssssssss", $this->firstname, $this->lastname, $this->email, $this->password, $this->country, $this->birthdate, $this->permission, $this->id);
+			
 		if($stmt->execute()){
 			return true;
 		}

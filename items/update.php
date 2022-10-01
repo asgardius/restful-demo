@@ -6,25 +6,29 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 include_once '../config/Database.php';
-include_once '../class/Items.php';
+include_once '../class/Users.php';
  
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->getConnection(); 
  
-$items = new Items($db);
+$items = new Users($db);
  
 $data = json_decode(file_get_contents("php://input"));
 
-if(!empty($data->id) && !empty($data->name) && 
-!empty($data->description) && !empty($data->price) && 
-!empty($data->category_id)){ 
-	
-	$items->id = $data->id; 
-	$items->name = $data->name;
-    $items->description = $data->description;
-    $items->price = $data->price;
-    $items->category_id = $data->category_id;	
-    $items->created = date('Y-m-d H:i:s'); 
+if(!empty($data->id) && !empty($data->firstname) &&
+!empty($data->lastname) && !empty($data->email) &&
+!empty($data->password) && !empty($data->country) &&
+!empty($data->birthdate) &&
+!empty($data->permission)){    
+
+    $items->id = $data->id;
+    $items->firstname = $data->firstname;
+    $items->lastname = $data->lastname;
+    $items->email = $data->email;	
+    $items->password = $data->password;
+    $items->country = $data->country;
+    $items->birthdate = $data->birthdate;
+	$items->permission = $data->permission;
 	
 	
 	if($items->update()){     
