@@ -29,7 +29,8 @@ if($result->num_rows > 0){
 			"email" => $email,
             "password" => $password,            
 			"country" => $country,
-            "birthdate" => $birthdate			
+            "birthdate" => $birthdate,
+            "permission" => $permission
         ); 
        array_push($itemRecords["items"], $itemDetails);
     }    

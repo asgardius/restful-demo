@@ -40,8 +40,8 @@ class Users{
 	function create(){
 		
 		$stmt = $this->conn->prepare("
-			INSERT INTO ".$this->itemsTable."(`id`, `firstname`, `lastname`, `email`, `password`, `country`, `birthdate`)
-			VALUES(?,?,?,?,?,?,?)");
+			INSERT INTO ".$this->itemsTable."(`id`, `firstname`, `lastname`, `email`, `password`, `country`, `birthdate`, `permission`)
+			VALUES(?,?,?,?,?,?,?,'user')");
 		
 		$this->id = htmlspecialchars(strip_tags($this->id));
 		$this->firstname = htmlspecialchars(strip_tags($this->firstname));
